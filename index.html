@@ -73,6 +73,56 @@
         </div>
     </section>
 
+    <section id="calculator" class="calculator-section section-padding">
+        <div class="container">
+            <h2>Fitness Calculator</h2>
+            <div class="calculator-grid">
+                <div class="calculator-card">
+                    <h3>BMI Calculator</h3>
+                    <form id="bmi-calculator" class="calculator-form">
+                        <div class="form-group">
+                            <label for="weight">Weight (kg):</label>
+                            <input type="number" id="weight" required min="20" max="300">
+                        </div>
+                        <div class="form-group">
+                            <label for="height">Height (cm):</label>
+                            <input type="number" id="height" required min="100" max="250">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Calculate BMI</button>
+                        <div id="bmi-result" class="calculator-result"></div>
+                    </form>
+                </div>
+                <div class="calculator-card">
+                    <h3>Calorie Calculator</h3>
+                    <form id="calorie-calculator" class="calculator-form">
+                        <div class="form-group">
+                            <label for="age">Age:</label>
+                            <input type="number" id="age" required min="15" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender:</label>
+                            <select id="gender" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="activity">Activity Level:</label>
+                            <select id="activity" required>
+                                <option value="sedentary">Sedentary</option>
+                                <option value="light">Lightly Active</option>
+                                <option value="moderate">Moderately Active</option>
+                                <option value="very">Very Active</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Calculate Calories</button>
+                        <div id="calorie-result" class="calculator-result"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="contact-section section-padding">
         <div class="container">
             <h2>Contact Us</h2>

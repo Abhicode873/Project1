@@ -62,4 +62,66 @@ document.addEventListener('DOMContentLoaded', () => {
             this.reset(); // Clear the form fields
         });
     }
+
+    // Fitness Calculators
+    const bmiCalculator = document.getElementById('bmi-calculator');
+    const calorieCalculator = document.getElementById('calorie-calculator');
+
+    if (bmiCalculator) {
+        bmiCalculator.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value) / 100; // Convert cm to m
+            const bmi = weight / (height * height);
+            const resultDiv = document.getElementById('bmi-result');
+            
+            let category;
+            if (bmi < 18.5) category = 'Underweight';
+            else if (bmi < 25) category = 'Normal weight';
+            else if (bmi < 30) category = 'Overweight';
+            else category = 'Obese';
+
+            resultDiv.innerHTML = `
+                <p>Your BMI: ${bmi.toFixed(1)}</p>
+                <p>Category: ${category}</p>
+            `;
+            resultDiv.classList.add('show');
+        });
+    }
+
+    if (calorieCalculator) {
+        calorieCalculator.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const age = parseInt(document.getElementById('age').value);
+            const gender = document.getElementById('gender').value;
+            const activity = document.getElementById('activity').value;
+            
+            // Basic BMR calculation using Mifflin-St Jeor Equation
+            let bmr;
+            if (gender === 'male') {
+                bmr = 10 * 70 + 6.25 * 170 - 5 * age + 5; // Using average weight and height
+            } else {
+                bmr = 10 * 60 + 6.25 * 160 - 5 * age - 161;
+            }
+
+            // Activity multiplier
+            const activityMultipliers = {
+                sedentary: 1.2,
+                light: 1.375,
+                moderate: 1.55,
+                very: 1.725
+            };
+
+            const tdee = bmr * activityMultipliers[activity];
+            const resultDiv = document.getElementById('calorie-result');
+            
+            resultDiv.innerHTML = `
+                <p>Your daily calorie needs:</p>
+                <p>Maintenance: ${Math.round(tdee)} calories</p>
+                <p>Weight Loss: ${Math.round(tdee - 500)} calories</p>
+                <p>Weight Gain: ${Math.round(tdee + 500)} calories</p>
+            `;
+            resultDiv.classList.add('show');
+        });
+    }
 });
