@@ -43,6 +43,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // Testimonials Slider
+    const testimonialItems = document.querySelectorAll('.testimonial-item');
+    const prevButton = document.querySelector('.testimonial-prev');
+    const nextButton = document.querySelector('.testimonial-next');
+    let currentTestimonial = 0;
+
+    function showTestimonial(index) {
+        testimonialItems.forEach(item => item.classList.remove('active'));
+        testimonialItems[index].classList.add('active');
+    }
+
+    if (prevButton && nextButton) {
+        prevButton.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial - 1 + testimonialItems.length) % testimonialItems.length;
+            showTestimonial(currentTestimonial);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialItems.length;
+            showTestimonial(currentTestimonial);
+        });
+
+        // Auto-rotate testimonials every 5 seconds
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonialItems.length;
+            showTestimonial(currentTestimonial);
+        }, 5000);
+    }
+
     // Basic Contact Form Submission (Client-side only)
     // This is a very basic example and does not send data to a server.
     const contactForm = document.querySelector('.contact-form');
