@@ -19,6 +19,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
+                    <li><a href="#calculator">Fitness Calculator</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="burger-menu" id="burger-menu">
@@ -79,7 +80,7 @@
             <div class="testimonials-slider">
                 <div class="testimonial-item active">
                     <div class="testimonial-content">
-                        <img src="images/th.jpg" alt="Client 1" class="testimonial-img">
+                        <img src="images/testimonial1.jpg" alt="Client 1" class="testimonial-img">
                         <p class="testimonial-text">"FitLife changed my life! Their personalized approach helped me reach my fitness goals in record time. Best decision ever!"</p>
                         <h4>Sarah Johnson</h4>
                         <p class="testimonial-role">Lost 30 lbs in 6 months</p>
@@ -87,7 +88,7 @@
                 </div>
                 <div class="testimonial-item">
                     <div class="testimonial-content">
-                        <img src="C:\Users\prajw\Documents\gitproject3\Project1\images\OIP.jpg" alt="Client 2" class="testimonial-img">
+                        <img src="images/testimonial2.jpg" alt="Client 2" class="testimonial-img">
                         <p class="testimonial-text">"Incredible energy and motivation! Our group classes are the highlight of my week. The trainers and members create an amazing atmosphere!"</p>
                         <h4>Mike Thompson</h4>
                         <p class="testimonial-role">Regular member for 2 years</p>
@@ -96,6 +97,56 @@
                 <div class="testimonial-controls">
                     <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
                     <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="calculator" class="calculator-section section-padding">
+        <div class="container">
+            <h2>Fitness Calculator</h2>
+            <div class="calculator-grid">
+                <div class="calculator-card">
+                    <h3>BMI Calculator</h3>
+                    <form id="bmi-calculator" class="calculator-form">
+                        <div class="form-group">
+                            <label for="weight">Weight (kg):</label>
+                            <input type="number" id="weight" required min="20" max="300">
+                        </div>
+                        <div class="form-group">
+                            <label for="height">Height (cm):</label>
+                            <input type="number" id="height" required min="100" max="250">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Calculate BMI</button>
+                        <div id="bmi-result" class="calculator-result"></div>
+                    </form>
+                </div>
+                <div class="calculator-card">
+                    <h3>Calorie Calculator</h3>
+                    <form id="calorie-calculator" class="calculator-form">
+                        <div class="form-group">
+                            <label for="age">Age:</label>
+                            <input type="number" id="age" required min="15" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender:</label>
+                            <select id="gender" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="activity">Activity Level:</label>
+                            <select id="activity" required>
+                                <option value="sedentary">Sedentary</option>
+                                <option value="light">Lightly Active</option>
+                                <option value="moderate">Moderately Active</option>
+                                <option value="very">Very Active</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Calculate Calories</button>
+                        <div id="calorie-result" class="calculator-result"></div>
+                    </form>
                 </div>
             </div>
         </div>
